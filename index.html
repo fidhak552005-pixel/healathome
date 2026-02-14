@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HEAL AT HOME</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Grid layout */
+        #results {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .verified {
+            color: green;
+            font-weight: bold;
+        }
+
+        /* Full card popup */
+        #fullCard {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 5;
+        }
+
+        #fullCard button {
+            padding: 10px 15px;
+            margin: 10px 5px 0 5px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+        }
+
+        #fullCard button:hover {
+            background: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Mother & Baby Care Nurses</h1>
+
+<!-- Nurse List Grid -->
+<div id="results"></div>
+
+<!-- Overlay for popup -->
+<div id="overlay" onclick="closeFullCard()"></div>
+
+<!-- Full Card Detail -->
+<div class="card" id="fullCard">
+    <h3 id="fullName"></h3>
+    <p id="fullLocation"></p>
+    <p id="fullExperience"></p>
+    <p id="fullExpertise"></p>
+    <p id="fullAmount"></p>
+    <p class="verified"></p>
+    <p id="fullCertificate"></p>
+    <p id="fullRating"></p>
+    <div style="text-align:center;">
+        <button onclick="bookNurse()">Book Nurse</button>
+        <button onclick="closeFullCard()">Close / End</button>
+    </div>
+</div>
+
+<script>
+    const nurses = [
+        { name: "Priya Sharma", location: "Mumbai", experience: "5 years", expertise: "Newborn & Mother Care", amount: "₹500/day", certificate: "ANM Certificate uploaded", rating: "4.8 ⭐" },
+        { name: "Anjali Verma", location: "Delhi", experience: "3 years", expertise: "Postpartum & Lactation", amount: "₹400/day", certificate: "GNM Certificate uploaded", rating: "4.6 ⭐" },
+        { name: "Ritu Singh", location: "Mumbai", experience: "6 years", expertise: "Newborn Care Specialist", amount: "₹600/day", certificate: "ANM + First Aid Certified", rating: "4.9 ⭐" },
+        { name: "Sonal Patil", location: "Pune", experience: "4 years", expertise: "Mother & Baby Care", amount: "₹450/day", certificate: "GNM Certificate", rating: "4.7 ⭐" },
+        { name: "Neha Kapoor", location: "Bangalore", experience: "5 years", expertise: "Postpartum & Baby Care", amount: "₹500/day", certificate: "ANM Certified", rating: "4.8 ⭐" },
+        { name: "Simran Kaur", location: "Chennai", experience: "3 years", expertise: "Lactation & Mother Care", amount: "₹400/day", certificate: "GNM Certified", rating: "4.6 ⭐" }
+    ];
+
+    const resultsDiv = document.getElementById("results");
+
+    // Show all nurses on page load
+    function showAllNurses() {
+        resultsDiv.innerHTML = "";
+        nurses.forEach(nurse => {
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = `
+                <h3>${nurse.name}</h3>
+                <p>Location: ${nurse.location}</p>
+                <p>Experience: ${nurse.experience}</p>
+                <p>Expertise: ${nurse.expertise}</p>
+                <p>Amount: ${nurse.amount}</p>
+        `;
+            card.onclick = () => showFullCard(nurse);
+            resultsDiv.appendChild(card);
+        });
+    }
+
+    // Show full card popup
+    function showFullCard(nurse) {
+        document.getElementById("fullName").innerText = nurse.name;
+        document.getElementById("fullLocation").innerText = "Location: " + nurse.location;
+        document.getElementById("fullExperience").innerText = "Experience: " + nurse.experience;
+        document.getElementById("fullExpertise").innerText = "Expertise: " + nurse.expertise;
+        document.getElementById("fullAmount").innerText = "Amount: " + nurse.amount;
+        document.getElementById("fullCertificate").innerText = "Certificate: " + nurse.certificate;
+        document.getElementById("fullRating").innerText = "Rating: " + nurse.rating;
+
+        document.getElementById("fullCard").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+    }
+
+    // Close full card
+    function closeFullCard() {
+        document.getElementById("fullCard").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+    }
+
+    // Book nurse
+    function bookNurse() {
+        alert("Booking Confirmed! , Ticket Conformed Through Email");
+        closeFullCard();
+    }
+
+    window.onload = showAllNurses;
+</script>
+
+</body>
+</html>
