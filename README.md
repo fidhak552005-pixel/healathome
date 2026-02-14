@@ -6,7 +6,7 @@
 
 ## Basic Details
 
-**Team Name:** [INSERT HERE]
+**Team Name:** DUO PROJECT
 
 **Team Members:**  
 [fidha k - SSC COLLEGE  
@@ -70,7 +70,14 @@ This improves accessibility and decision-making for families seeking home health
 
 5. **Clean UI Layout**
    - Structured card-based design with spacing and organized alignment.
+  
+**For Software:**
+Screenshots (Add at least 3)
+<img width="960" height="540" alt="scr 2" src="https://github.com/user-attachments/assets/58b16cc0-8f64-45cd-a56e-8b9191181ae8" />
 
+<img width="960" height="540" alt="scr 3" src="https://github.com/user-attachments/assets/5d77d1b5-537c-4c04-9a7c-60a978f3fc67" />
+
+<img width="960" height="540" alt="screeenshort 1" src="https://github.com/user-attachments/assets/dff77f17-b8a8-43e6-99f4-ec1925d100f7" />
 ---
 
 # Implementation
