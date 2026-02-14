@@ -80,9 +80,22 @@ Screenshots (Add at least 3)
 <img width="960" height="540" alt="screeenshort 1" src="https://github.com/user-attachments/assets/dff77f17-b8a8-43e6-99f4-ec1925d100f7" />
 ---
 
+**Project Demo**
+Video
+https://www.youtube.com/watch?v=a3aVXrBl4T0
+
 # Implementation
 
 ## Installation
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Common License Options:
+
+MIT License (Permissive, widely used)
+Apache 2.0 (Permissive with patent grant)
+GPL v3 (Copyleft, requires derivative works to be open source)
 
 ```bash
 # Clone the repository
